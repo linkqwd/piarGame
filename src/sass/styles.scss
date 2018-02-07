@@ -49,6 +49,10 @@ footer {
 	font-size: 16px;
 }
 
+.result--total {
+	font-weight: bold;
+}
+
 .pair-item {
 	background: #ccc;
 	border: 1px solid black;
@@ -104,3 +108,63 @@ footer {
 	visibility: hidden;
 }
 
+
+
+/* === Modal windows === */
+
+.display-none {
+	display: none;
+}
+
+.modal {
+	position: fixed;
+	top:0;
+	left: 0;
+	bottom:0;
+	width: 100%;
+}
+
+.bg {
+	/* Подложка */
+	content: "";
+	position: absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom: 0px;
+	background-color:rgba(155	,225,225,0.2);
+}
+
+.m-content {
+	/* центрирование */
+	position: absolute;
+	margin: 50px auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 400px;
+	background: #eee;
+	padding: 20px;
+	border-radius: 3px;
+	& h2 {
+		font-weight: bold;
+	}
+	& div {
+		margin: 20px 5px;
+		line-height: 26px;
+	}
+	& button {
+		border-radius: 1px;
+		border: 1px solid grey;
+		color: black;
+			text-decoration: none;
+			width: 60px;
+			text-align: center;
+			line-height: 18px;
+		&:hover {
+			outline: none;
+			box-shadow: 0 0 0px 1px #76a7e1;
+		}
+	}
+}

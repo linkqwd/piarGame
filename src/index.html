@@ -12,8 +12,8 @@
 	
 	<header>
 		<h1>Pair game</h1>
-		<div class="points">Points: 0</div>
-		<button type="button">Options</button>
+		<div class="points">Points: <span class="result">0</span></div>
+		<button type="button" class="open-options-button">Options</button>
 	</header>
 
 	<main>
@@ -21,10 +21,39 @@
 	</main>
 
 	<footer>
-		<h2>Made by linkq, inspired by kottans</h2>
+		<h2>Made by me, inspired by kottans</h2>
 	</footer>
 
+	<div class="modal display-none">
+		<div class="bg"></div>
+		
+		<div class="options-content m-content display-none">
+			<h2>Choose difficulty:</h2>
+			<div>
+				<span>Choose: </span>
+				<button type="button" class="close-options-btn">Easy</button>
+				<span> - 12 boxes, 1 second preview</span>
+			</div>
+			<div>
+				<span>Choose: </span>
+				<button type="button" class="close-options-btn">Normal</button>
+				<span> - 24 boxes, 1.5 second preview</span>
+			</div>
+			<div>
+				<span>Choose: </span>
+				<button type="button" class="close-options-btn">Expert</button>
+				<span> - 36 boxes, 2 second preview</span>
+			</div>
+			<div>
+				<button class="close-options-btn">Close</button>
+			</div>
+		</div>
 
+		<div class="result-content m-content display-none">
+			<p>Your result is: <span class="result result--total">0</span> points</p>
+		</div>
+
+	</div>
 
 	<script src="js/libs.min.js"></script>
 	<script src="js/main.js"></script>

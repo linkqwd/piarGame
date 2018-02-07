@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, input, textarea, p, blockquote, th, td, menu { margin: 0; padding: 0; }
 
 table { border-collapse: collapse; border-spacing: 0; }
@@ -46,6 +47,8 @@ footer { max-width: 760px; margin: 0 auto; padding: 20px; background: #dde; }
 
 .points { border: 1px solid grey; line-height: 30px; padding: 5px 15px; background: #ddd; font-size: 16px; }
 
+.result--total { font-weight: bold; }
+
 .pair-item { background: #ccc; border: 1px solid black; margin: 10px; cursor: pointer; border-radius: 2px; }
 
 /* entire container, keeps perspective */
@@ -70,3 +73,20 @@ footer { max-width: 760px; margin: 0 auto; padding: 20px; background: #dde; }
 .back { transform: rotateY(180deg); border-radius: 2px; }
 
 .match { visibility: hidden; }
+
+/* === Modal windows === */
+.display-none { display: none; }
+
+.modal { position: fixed; top: 0; left: 0; bottom: 0; width: 100%; }
+
+.bg { /* Подложка */ content: ""; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; background-color: rgba(155, 225, 225, 0.2); }
+
+.m-content { /* центрирование */ position: absolute; margin: 50px auto; top: 0; bottom: 0; right: 0; left: 0; width: 400px; background: #eee; padding: 20px; border-radius: 3px; }
+
+.m-content h2 { font-weight: bold; }
+
+.m-content div { margin: 20px 5px; line-height: 26px; }
+
+.m-content button { border-radius: 1px; border: 1px solid grey; color: black; text-decoration: none; width: 60px; text-align: center; line-height: 18px; }
+
+.m-content button:hover { outline: none; box-shadow: 0 0 0px 1px #76a7e1; }

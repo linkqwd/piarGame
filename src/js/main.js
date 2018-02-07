@@ -25,7 +25,8 @@ window.onload = function(e){
 		}
 	
 		this.makeField = function (arrayOfCards) {
-			var cardContainer = document.querySelector("main")
+			$('main').empty();
+			var cardContainer = document.querySelector('main');
 			for (var i = 0; i < params.fieldSize; i++) {
 				cardContainer.insertAdjacentHTML('beforeEnd', arrayOfCards[i]);
 			}
@@ -53,7 +54,6 @@ window.onload = function(e){
 				$(this).addClass('flip');
 				var currentCards = $('.flip-container').children('.flip');
 				if (currentCards.length === 2) {
-
 					that.cardController(currentCards);
 				} 
 			});
@@ -77,9 +77,8 @@ window.onload = function(e){
 		}
 
 		this.pointsCounter = function (arg) {
-			
 			points = points + (arg);
-			$('.points').html(`Points: ${points}`);
+			$('.result').html(points);
 		}
 		
 		this.makeArrayOfCards();
@@ -87,11 +86,78 @@ window.onload = function(e){
 		this.closeAllCardsAtStart();
 	}
 
+	function Modal (params) {
+		var openButton = document.querySelector(params.openButton);
+		var closeButton = document.querySelectorAll(params.closeButton);
+		var content = document.querySelector(params.content);
+		var modal = document.querySelector('.modal');
+		var bg = document.querySelector('.bg');
 
+		var that = this;
+		
+		this.show = function () {
+			modal.classList.remove('display-none');
+			content.classList.remove('display-none');
+		}
+		
+		this.close = function () {
+			modal.classList.add('display-none');
+			content.classList.add('display-none');
 
-	var play = new CardPairGame({
-		fieldSize: 12,
-		showTimeout: 1
-	});
+		}
 
+		openButton.onclick = function () {
+			that.show();
+		}
+
+		closeButton.forEach(function(elem) {
+			elem.onclick = function () {
+				that.close();
+				startGame($(this).html());
+			}
+		});
+	}
+
+	function startGame (difficulty) {
+		var options = [
+			{
+				difficulty: 'Easy',
+				fieldSize: 12,
+				showTimeout: 0.5
+			}, 
+			{
+				difficulty: 'Normal',
+				fieldSize: 24,
+				showTimeout: 1.5
+			}, 
+			{
+				difficulty: 'Expert',
+				fieldSize: 36,
+				showTimeout: 2},
+		];
+
+		if (difficulty === 'Easy') {
+			var defaultPlay = new CardPairGame(options[0]);
+		} else if (difficulty === 'Normal') {
+			var defaultPlay = new CardPairGame(options[1]);
+		} else if (difficulty === 'Expert') {
+			var defaultPlay = new CardPairGame(options[2]);
+		} else {
+			var defaultPlay = new CardPairGame(options[0]);
+		}
+
+		var modalOptions = new Modal ({
+			openButton: '.open-options-button',
+			closeButton: '.close-options-btn',
+			content: '.options-content'
+		});
+
+		var modalResult = new Modal ({
+			openButton: '.open-options-button',
+			closeButton: '.close-options-btn',
+			content: '.options-content'
+		});
+	}
+
+	startGame();
 }
