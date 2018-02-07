@@ -12,16 +12,16 @@ body {
 
 header {
 	@include sizes;
-	font-size: 26px;
+	font-size: 28px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-
 	& button {
 		border-radius: 2px;
 		border: 1px solid grey;
 		padding: 2px 10px;
 		cursor: pointer;
+		font-size: 16px;
 		&:focus {
 			outline: none;
 			box-shadow: 0 0 0px 1.5px #76a7e1;
@@ -41,7 +41,13 @@ footer {
 	background: #dde;
 }
 
-
+.points {
+	border: 1px solid grey;
+	line-height: 30px;
+	padding: 5px 15px;
+	background: #ddd;
+	font-size: 16px;
+}
 
 .pair-item {
 	background: #ccc;
@@ -68,7 +74,7 @@ footer {
 }
 /* flip speed goes here */
 .flipper {
-	transition: 0.7s;
+	transition: 0.6s;
 	transform-style: preserve-3d;
 	position: relative;
 }
@@ -91,7 +97,10 @@ footer {
 /* back, initially hidden pane */
 .back {
 	transform: rotateY(180deg);
-	/* background: green; */
 	border-radius: 2px;
+}
+
+.match {
+	visibility: hidden;
 }
 

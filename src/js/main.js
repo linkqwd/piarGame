@@ -1,7 +1,7 @@
 window.onload = function(e){
 
 	function CardPairGame(params) {
-
+		var points = 0;
 		var that = this;
 
 		this.makeArrayOfCards = function () {
@@ -49,53 +49,49 @@ window.onload = function(e){
 		}
 
 		this.flipCard = function () {
-			var clickCounter = 0;
-			var $selector = $('.flip-container');
-
-			$selector.on('click', '.flipper', function () {
-
-				if (clickCounter === 2) {
-					clickCounter = 1;
-					that.closeAllCards();
-				} else {
-					clickCounter++;
-				}
-
-				/*var currentCard = $('.flip-container').children('.flip');
-				.not(currentCard)*/
-
+			$('.flip-container').on('click', '.flipper', function () {
 				$(this).addClass('flip');
-				that.cardController($(this));
-				
+				var currentCards = $('.flip-container').children('.flip');
+				if (currentCards.length === 2) {
+
+					that.cardController(currentCards);
+				} 
 			});
 		}
 
 		this.cardController = function (element) {
-			var temp = element.attr('data-color');
+			var firstCard = element[0].getAttribute('data-color');
+			var secondCard = element[1].getAttribute('data-color');
 			
-			if (temp === element.attr('data-color')) {
-				alert('msg');
+			if (firstCard === secondCard) {
+				element[0].classList.add('match');
+				element[1].classList.add('match');
+				that.pointsCounter(10);
+			} else {
+				that.pointsCounter(-5);
 			}
+
+			setTimeout(function() {
+				that.closeAllCards();
+			}, 600);
+		}
+
+		this.pointsCounter = function (arg) {
+			
+			points = points + (arg);
+			$('.points').html(`Points: ${points}`);
 		}
 		
-
-
 		this.makeArrayOfCards();
 		this.openAllCardsAtStart();
 		this.closeAllCardsAtStart();
 	}
 
 
+
 	var play = new CardPairGame({
-		fieldSize: 36,
-		showTimeout: 0
+		fieldSize: 12,
+		showTimeout: 1
 	});
 
 }
-
-/*	var testArray = [1,2,3,4,5]
-
-	testArray.sort(function() { return 0.5 - Math.random() });
-
-	console.log(testArray);
-	console.log(1);*/
