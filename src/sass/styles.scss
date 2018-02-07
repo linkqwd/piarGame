@@ -12,24 +12,86 @@ body {
 
 header {
 	@include sizes;
+	font-size: 26px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	& button {
+		border-radius: 2px;
+		border: 1px solid grey;
+		padding: 2px 10px;
+		cursor: pointer;
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0px 1.5px #76a7e1;
+		}
+	}
 }
 
 main {
 	@include sizes;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.pair {
-	width: 150px;
-	height: 150px;
-	background: #aaa;
+footer {
+	@include sizes;
+	background: #dde;
+}
+
+
+
+.pair-item {
+	background: #ccc;
 	border: 1px solid black;
 	margin: 10px;
 	cursor: pointer;
 	border-radius: 2px;
 }
 
-footer {
-	@include sizes;
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
 }
+/* flip the pane when hovered */
+/* .flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
+} */
+.flip {
+	transform: rotateY(180deg);
+}
+.flip-container, .front, .back {
+	width: 150px;
+	height: 150px;
+}
+/* flip speed goes here */
+.flipper {
+	transition: 0.7s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+	background: #d9e6e7;
+	border-radius: 2px;
+}
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+	/* background: green; */
+	border-radius: 2px;
+}
+
