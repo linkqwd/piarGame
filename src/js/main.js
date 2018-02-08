@@ -26,10 +26,13 @@ window.onload = function(e){
 	
 		this.makeField = function (arrayOfCards) {
 			$('main').empty();
+			$('.result').html('0');
 			var cardContainer = document.querySelector('main');
 			for (var i = 0; i < params.fieldSize; i++) {
 				cardContainer.insertAdjacentHTML('beforeEnd', arrayOfCards[i]);
 			}
+			this.openAllCardsAtStart();
+			this.closeAllCardsAtStart();
 		}
 
 		this.openAllCardsAtStart = function () {
@@ -71,6 +74,15 @@ window.onload = function(e){
 				that.pointsCounter(-5);
 			}
 
+			var matches = $('.match');
+
+			if (matches.length === params.fieldSize) {
+				$('.result').html(points + " " + params.difficulty);
+				$('.result').trigger('click');
+			}
+
+			console.log(matches.length);
+
 			setTimeout(function() {
 				that.closeAllCards();
 			}, 600);
@@ -82,12 +94,10 @@ window.onload = function(e){
 		}
 		
 		this.makeArrayOfCards();
-		this.openAllCardsAtStart();
-		this.closeAllCardsAtStart();
 	}
 
 	function Modal (params) {
-		var openButton = document.querySelector(params.openButton);
+		var openButton = document.querySelectorAll(params.openButton);
 		var closeButton = document.querySelectorAll(params.closeButton);
 		var content = document.querySelector(params.content);
 		var modal = document.querySelector('.modal');
@@ -103,17 +113,27 @@ window.onload = function(e){
 		this.close = function () {
 			modal.classList.add('display-none');
 			content.classList.add('display-none');
-
 		}
 
-		openButton.onclick = function () {
-			that.show();
+		bg.onclick = function () {
+			that.close();
 		}
 
+		openButton.forEach(function(elem) {
+			elem.onclick = function () {
+				that.show();
+			}
+		});
+		
 		closeButton.forEach(function(elem) {
 			elem.onclick = function () {
 				that.close();
-				startGame($(this).html());
+
+				if ($(this).html() === 'Close') { 
+					return false;
+				} else {
+					startGame($(this).html());
+				}
 			}
 		});
 	}
@@ -123,17 +143,17 @@ window.onload = function(e){
 			{
 				difficulty: 'Easy',
 				fieldSize: 12,
-				showTimeout: 0.5
+				showTimeout: 1
 			}, 
 			{
 				difficulty: 'Normal',
 				fieldSize: 24,
-				showTimeout: 1.5
+				showTimeout: 2
 			}, 
 			{
 				difficulty: 'Expert',
 				fieldSize: 36,
-				showTimeout: 2},
+				showTimeout: 3},
 		];
 
 		if (difficulty === 'Easy') {
@@ -153,11 +173,11 @@ window.onload = function(e){
 		});
 
 		var modalResult = new Modal ({
-			openButton: '.open-options-button',
+			openButton: '.points',
 			closeButton: '.close-options-btn',
-			content: '.options-content'
+			content: '.result-content'
 		});
 	}
-
+	
 	startGame();
 }

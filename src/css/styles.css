@@ -35,17 +35,23 @@ img { max-width: 100%; height: auto; }
 
 body { font-size: 16px; font-family: 'firasans'; background: #eee; }
 
-header { max-width: 760px; margin: 0 auto; padding: 20px; font-size: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; }
+header { max-width: 860px; margin: 0 auto; padding: 20px; font-size: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; }
+
+header a { color: black; }
 
 header button { border-radius: 2px; border: 1px solid grey; padding: 2px 10px; cursor: pointer; font-size: 16px; }
 
 header button:focus { outline: none; box-shadow: 0 0 0px 1.5px #76a7e1; }
 
-main { max-width: 760px; margin: 0 auto; padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; }
+header button:hover { outline: none; box-shadow: 0 0 0px 1px #76a7e1; }
 
-footer { max-width: 760px; margin: 0 auto; padding: 20px; background: #dde; }
+main { max-width: 860px; margin: 0 auto; padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; }
 
-.points { border: 1px solid grey; line-height: 30px; padding: 5px 15px; background: #ddd; font-size: 16px; }
+footer { max-width: 860px; margin: 0 auto; padding: 20px; background: #dde; }
+
+.points { border: 1px solid grey; line-height: 30px; padding: 5px 15px; background: #ddd; font-size: 16px; cursor: pointer; }
+
+.points:hover { outline: none; box-shadow: 0 0 0px 1px #76a7e1; }
 
 .result--total { font-weight: bold; }
 
@@ -87,6 +93,12 @@ footer { max-width: 760px; margin: 0 auto; padding: 20px; background: #dde; }
 
 .m-content div { margin: 20px 5px; line-height: 26px; }
 
-.m-content button { border-radius: 1px; border: 1px solid grey; color: black; text-decoration: none; width: 60px; text-align: center; line-height: 18px; }
+.close-options-btn { border-radius: 1px; border: 1px solid grey; color: black; text-decoration: none; width: 60px; text-align: center; line-height: 18px; }
 
-.m-content button:hover { outline: none; box-shadow: 0 0 0px 1px #76a7e1; }
+.close-options-btn:hover { outline: none; box-shadow: 0 0 0px 1px #76a7e1; }
+
+.close-options-btn--wider { width: 100px; line-height: 20px; margin-top: 10px; }
+
+.result-content { text-align: center; position: absolute; margin: 50px auto; top: 0; bottom: 0; right: 0; left: 0; width: 400px; background: #eee; padding: 20px; border-radius: 3px; }
+
+.result-content p { margin: 10px 0; }

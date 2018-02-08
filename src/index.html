@@ -11,7 +11,7 @@
 <body>
 	
 	<header>
-		<h1>Pair game</h1>
+		<h1><a href="/">Pair game</a></h1>
 		<div class="points">Points: <span class="result">0</span></div>
 		<button type="button" class="open-options-button">Options</button>
 	</header>
@@ -37,20 +37,26 @@
 			<div>
 				<span>Choose: </span>
 				<button type="button" class="close-options-btn">Normal</button>
-				<span> - 24 boxes, 1.5 second preview</span>
+				<span> - 24 boxes, 2 second preview</span>
 			</div>
 			<div>
 				<span>Choose: </span>
 				<button type="button" class="close-options-btn">Expert</button>
-				<span> - 36 boxes, 2 second preview</span>
+				<span> - 36 boxes, 3 second preview</span>
 			</div>
 			<div>
-				<button class="close-options-btn">Close</button>
+				<button type="button" class="close-options-btn">Close</button>
 			</div>
 		</div>
 
-		<div class="result-content m-content display-none">
+		<div class="result-content display-none">
 			<p>Your result is: <span class="result result--total">0</span> points</p>
+			<div>
+				<button type="button" class="close-options-btn">Close</button>
+			</div>
+			<div>
+				<button type="button" class="close-options-btn close-options-btn--wider">New game</button>
+			</div>
 		</div>
 
 	</div>
