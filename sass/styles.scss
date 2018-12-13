@@ -1,0 +1,116 @@
+@import '_reset.scss';
+@import '_fonts.scss';
+@import '_mixins.scss';
+
+* { box-sizing: border-box; }
+
+body {
+	font-size: 16px;
+	font-family: 'firasans';
+	background: #fff;
+	@include sizes;
+}
+
+header {
+	font-size: 28px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	& a {
+		color: black;
+	}
+}
+
+main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 40px;
+	margin: 0 -30px;
+}
+
+.link {
+    display: block;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+	top: 20%;
+	color: black;
+	background: #ddd;
+	line-height: 26px;
+    padding: 15px 20px;
+    transform: translateX(-50%);
+    border: 1px solid grey
+}
+
+.scores {
+	border: 1px solid grey;
+	line-height: 31px;
+	padding: 5px 15px;
+	background: #ddd;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.result--total {
+	font-weight: bold;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+	margin: 10px
+}
+
+.js-card-opened {
+	transform: rotateY(180deg);
+	pointer-events: none;
+	cursor: none;
+}
+
+.js-card-no-click {
+	pointer-events: none;
+}
+
+.js-card-guessed {
+	pointer-events: none;
+	height: 150px;
+	
+	.front {
+		background: none
+	}
+}
+
+.flip-container, .front, .back {
+	width: 150px;
+	height: 150px;
+}
+/* flip speed goes here */
+.flipper {
+	transition: 0.5s;
+	transform-style: preserve-3d;
+	position: relative;
+	cursor: pointer;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/* front pane, placed above back */
+.front {
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+	background: #92d2d754;
+}
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+	border-radius: 2px;
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

@@ -1,1 +1,0 @@
-hosted on: https://linkqwd.github.io/piarGame/
