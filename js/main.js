@@ -35,7 +35,7 @@ const pairGame = function () {
         if (settings.cardContent === 'colors') {
             return `<div class="flip-container"><div class="flipper ${DOM.card}" data-id="${index + 100}"><div class="front"></div><div class="back" style="background-color:${cardsResources.cardsColors[index]}"></div></div></div>`
         } else if (settings.cardContent === 'images') {
-            return `<div class="flip-container"><div class="flipper ${DOM.card}" data-id="${index + 100}"><div class="front"></div><div class="back" style="background-image: url(../images/${cardsResources.cardsImages[index]})"></div></div></div>`
+            return `<div class="flip-container"><div class="flipper ${DOM.card}" data-id="${index + 100}"><div class="front"></div><div class="back" style="background-image: url(../piarGame/images/${cardsResources.cardsImages[index]})"></div></div></div>`
         }
     };
 
@@ -90,7 +90,7 @@ const pairGame = function () {
         if (pairCounter === settings.numberOfCardPairs) {
             const link = document.createElement('a');
             link.setAttribute('class', 'link');
-            link.setAttribute('href', '/');
+            link.setAttribute('href', '/piarGame');
             document.querySelector(`.${DOM.cardsHolder}`).appendChild(link).innerHTML = `Your result is: <b>${scores}</b> <br> <b>Click to play again</b>`;
         }
     }
