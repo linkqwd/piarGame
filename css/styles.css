@@ -1,0 +1,265 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+menu {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img,
+abbr {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ul li,
+menu li {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+legend {
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@font-face {
+  font-family: "Scriptina";
+  src: url("../fonts/Scriptina/SCRIPTIN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "firasans";
+  src: url("../fonts/FiraSansRegular/FiraSansRegular.ttf") format("truetype");
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'firasans';
+  background: #fff;
+  max-width: 870px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  font-size: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header a {
+  color: black;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 40px;
+  margin: 0 -30px;
+}
+
+.link {
+  display: block;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  color: black;
+  background: #ddd;
+  line-height: 26px;
+  padding: 15px 20px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 1px solid grey;
+}
+
+.scores {
+  border: 1px solid grey;
+  line-height: 31px;
+  padding: 5px 15px;
+  background: #ddd;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.result--total {
+  font-weight: bold;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  margin: 10px;
+}
+
+.js-card-opened {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  pointer-events: none;
+  cursor: none;
+}
+
+.js-card-no-click {
+  pointer-events: none;
+}
+
+.js-card-guessed {
+  pointer-events: none;
+  height: 150px;
+}
+
+.js-card-guessed .front {
+  background: none;
+}
+
+.flip-container, .front, .back {
+  width: 150px;
+  height: 150px;
+}
+
+/* flip speed goes here */
+.flipper {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: relative;
+  cursor: pointer;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  /* for firefox 31 */
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  background: #92d2d754;
+}
+
+/* back, initially hidden pane */
+.back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  border-radius: 2px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=styles.css.map */
